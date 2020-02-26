@@ -16,7 +16,7 @@ class Genetic {
 
     if (input == undefined) {
       network.fitness = 0;
-      input = [0, 0, 0, 0, 0, 0];
+      input = [0, 0];
     }
 
     return network.activate(input);
@@ -24,7 +24,7 @@ class Genetic {
 
   prepareCrossover() {
 
-    genomes = this.selectBestGenomes(5);
+    genomes = this.selectBestGenomes(2);
 
     var bestGenomes = _.clone(genomes);
 

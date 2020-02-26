@@ -2,7 +2,7 @@ let gameArea;
 let players = [];
 let obstacles = [];
 
-let limitPlayers = 50;
+let limitPlayers = 100;
 let livePlayers = limitPlayers;
 
 let generation = 1;
@@ -15,7 +15,7 @@ let interval;
 let genomes = [];
 let Architect = synaptic.Architect;
 let Network = synaptic.Network;
-let genetic = new Genetic(6, 3);
+let genetic = new Genetic(2, 3);
 
 function startGame() {
 
@@ -102,26 +102,13 @@ function checkCrash(lastObstacles) {
     }
     if (players[i].crashed) continue;
 
-    let input = [
-      players[i].y,
-      lastObstacles[0].x,
-      lastObstacles[0].y,
-      lastObstacles[0].height,
-      lastObstacles[1].y,
-      lastObstacles[1].height,
-    ];
+    let distanceWidth = Math.abs(players[i].x - lastObstacles[0].x);
+    let distanceHeight = Math.abs(players[i].y - lastObstacles[0].centerGap);
 
-    /*for(let y = 0; y < 8; y++) {
-      if( y % 2 == 0) {
-        if(lastObstacles[y]){
-          input.push(lastObstacles[y].x);
-          input.push(lastObstacles[y].height);
-        }else {
-          input.push(480)
-          input.push(0)
-        }
-      }
-    }*/
+    let input = [
+      distanceWidth,
+      distanceHeight
+    ];
 
     var active = genetic.activateNetwork(genomes[i], input);
 
@@ -165,13 +152,16 @@ function moreObstacle() {
   let maxGap = 200;
   let gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
 
+  let centerGap = Math.floor(height + (gap/2));
+
   //obstacle top
   obstacles.push(new Component({
     width: 10,
     height: height,
     x: x,
     y: 0,
-    color: "green"
+    color: "green",
+    centerGap
   }));
 
   //obstacle bottom
@@ -180,7 +170,8 @@ function moreObstacle() {
     height: x - height - gap,
     x: x,
     y: height + gap,
-    color: "green"
+    color: "green",
+    centerGap: null
   }));
 }
 

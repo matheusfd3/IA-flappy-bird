@@ -8,6 +8,8 @@ class Component {
 
     this.speedX = 0;
     this.speedY = 0;
+
+    this.centerGap = object.centerGap;
   }
 
   newPos() {
