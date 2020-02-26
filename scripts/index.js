@@ -2,7 +2,7 @@ let gameArea;
 let players = [];
 let obstacles = [];
 
-let limitPlayers = 100;
+let limitPlayers = 50;
 let livePlayers = limitPlayers;
 
 let generation = 1;
@@ -33,7 +33,7 @@ function startGame() {
 
   gameArea.start();
 
-  interval = setInterval(refreshGame, 10);
+  interval = setInterval(refreshGame, 0);
 
 }
 
