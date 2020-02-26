@@ -145,8 +145,8 @@ function refreshInfo() {
 function moreObstacle() {
   let x = gameArea.canvas.width;
 
-  let minHeight = 50;
-  let maxHeight = 180;
+  let minHeight = 20;
+  let maxHeight = 160;
   let height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
 
   let gap = 100;
@@ -170,7 +170,7 @@ function moreObstacle() {
     x: x,
     y: height + gap,
     color: "green",
-    centerGap: null
+    centerGap
   }));
 }
 
