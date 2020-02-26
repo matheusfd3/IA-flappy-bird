@@ -145,12 +145,11 @@ function refreshInfo() {
 function moreObstacle() {
   let x = gameArea.canvas.width;
 
-  let minHeight = 20;
-  let maxHeight = 200;
+  let minHeight = 50;
+  let maxHeight = 180;
   let height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-  let minGap = 50;
-  let maxGap = 200;
-  let gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+
+  let gap = 100;
 
   let centerGap = Math.floor(height + (gap/2));
 
