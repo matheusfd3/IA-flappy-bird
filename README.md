@@ -6,7 +6,7 @@
   neural network and genetic algorithm
 </h3>
 
-<p>
+<p align="center">
   It's a study project to practice neural networks and genetic algorithms
 </p>
 
