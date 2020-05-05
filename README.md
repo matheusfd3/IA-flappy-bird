@@ -3,12 +3,8 @@
 </h1>
 
 <h3 align="center">
-  neural network and genetic algorithm
+  Projeto de estudo pessoal utilizando redes neurais e algoritmos genéticos.
 </h3>
-
-<p align="center">
-  It's a study project to practice neural networks and genetic algorithms
-</p>
 
 <h2 align="center">
   <img alt="machine learning" title="machine learning" src=".github/pic.png" />
