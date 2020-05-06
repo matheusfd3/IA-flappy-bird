@@ -6,5 +6,8 @@
   Projeto de estudo pessoal utilizando redes neurais e algoritmos genéticos.
 </h3>
 
-[https://matheusfd3.github.io/machine-learning/](https://matheusfd3.github.io/machine-learning/)
+<h5 align="center">
+  <a href="https://matheusfd3.github.io/machine-learning/">https://matheusfd3.github.io/machine-learning/</a>
+</h5>
+
 <img alt="machine learning" title="machine learning" src=".github/pic.png" />
