@@ -5,7 +5,7 @@ class Genetic {
 
   createGenomes(inputs, outputs) {
     const pool = 10, connections = 15, gates = 5;
-    while(genomes.length < limitPlayers) {
+    while(genomes.length < totalBirds) {
       let genome = new Architect.Liquid(inputs, pool, outputs, connections, gates);
       genome.fitness = 0;
       genomes.push(genome);
@@ -29,7 +29,7 @@ class Genetic {
     var bestGenomes = _.clone(genomes);
 
     // crossover de apenas 1/4
-    while (genomes.length < (limitPlayers - Math.round(limitPlayers / 2))) {
+    while (genomes.length < (totalBirds - Math.round(totalBirds / 2))) {
         var genA = _.sample(bestGenomes).toJSON();
         var genB = _.sample(bestGenomes).toJSON();
 
@@ -39,7 +39,7 @@ class Genetic {
         genomes.push(Network.fromJSON(newGenome));
     }
 
-    while (genomes.length < limitPlayers) {
+    while (genomes.length < totalBirds) {
         // Get two random Genomes
         var gen = _.sample(bestGenomes).toJSON();
 
