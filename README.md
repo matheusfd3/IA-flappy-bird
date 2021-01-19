@@ -7,7 +7,7 @@
 </h3>
 
 <h5 align="center">
-  <a href="https://matheusfd3.github.io/machine-learning/">https://matheusfd3.github.io/machine-learning/</a>
+  <a href="https://matheusfd3.github.io/IA-flappy-bird/">https://matheusfd3.github.io/IA-flappy-bird/</a>
 </h5>
 
 <h5 align="center">
