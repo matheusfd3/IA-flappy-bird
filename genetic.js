@@ -1,34 +1,25 @@
 class Genetic {
-  constructor(inputs, outputs) {
-    this.createGenomes(inputs, outputs);
+  constructor(input, hidden, output) {
+    this.createGenomes(input, hidden, output);
   }
 
-  createGenomes(inputs, outputs) {
-    const pool = 10, connections = 15, gates = 5;
+  createGenomes(input, hidden, output) {
     while(genomes.length < totalBirds) {
-      let genome = new Architect.Liquid(inputs, pool, outputs, connections, gates);
-      genome.fitness = 0;
+      let genome = new Architect.Perceptron(input, hidden, output);
+      genome.score = 0;
       genomes.push(genome);
     }
   }
 
-  activateNetwork(network, input) {
-
-    if (input == undefined) {
-      network.fitness = 0;
-      input = [0, 0];
-    }
-
-    return network.activate(input);
+  activateNetwork(genome, input) {
+    return genome.activate(input);
   }
 
   prepareCrossover() {
-
     genomes = this.selectBestGenomes(2);
-
     var bestGenomes = _.clone(genomes);
 
-    // crossover de apenas 1/4
+    // crossover
     while (genomes.length < (totalBirds - Math.round(totalBirds / 2))) {
         var genA = _.sample(bestGenomes).toJSON();
         var genB = _.sample(bestGenomes).toJSON();
@@ -40,7 +31,7 @@ class Genetic {
     }
 
     while (genomes.length < totalBirds) {
-        // Get two random Genomes
+        // Get Genome
         var gen = _.sample(bestGenomes).toJSON();
 
         // Mutate
@@ -52,13 +43,10 @@ class Genetic {
   }
 
   selectBestGenomes(selectN) {
-
-    var selected = _.sortBy(genomes, 'fitness').reverse();
-
+    var selected = _.sortBy(genomes, 'score').reverse();
     while (selected.length > selectN) {
-        selected.pop();
+      selected.pop();
     }
-
     return selected;
   }
 
@@ -93,11 +81,8 @@ class Genetic {
   }
 
   mutate(net) {
-
     this.mutateDataKeys(net.neurons, 'bias', 0.3);
-
     this.mutateDataKeys(net.connections, 'weight', 0.3);
-
     return net;
   }
 
@@ -109,21 +94,6 @@ class Genetic {
       }
 
       a[k][key] += a[k][key] * (Math.random() - 0.5) * 3 + (Math.random() - 0.5);
-    }
-  }
-
-  executeGenome(pos, co) {
-    if (genomes[pos].fitness == undefined || genomes[pos].fitness < score) {
-      genomes[pos].fitness = score;
-    }
-
-    if (score > bestScore) {
-      bestScore = score;
-    }
-
-    if (co) {
-      this.prepareCrossover();
-      generation++;
     }
   }
 }
