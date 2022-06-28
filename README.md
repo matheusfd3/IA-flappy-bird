@@ -2,7 +2,7 @@
 <a href="https://matheusfd3.github.io/IA-flappy-bird/">https://matheusfd3.github.io/IA-flappy-bird/</a>
 ## Introdução
 Uma inteligência artificial para ensinar o passarinho do Flappy Bird a passar entre os obstáculos, usando Redes Neurais e um Algoritmo Genético.
-## Como funciona?
+## Rede neural
 Bom, para começarmos a entender como funciona primeiro precisamos entender como nós humanos conseguimos jogar um jogo como o Flappy Bird. Concorda comigo que para um humano jogar nós precisamos processar duas informações essenciais: altura do pássaro e a altura do gap, e o que fazemos? Colocamos o pássaro na mesma altura do gap. E adivinha? É exatamente isso que a nossa rede neural vai precisar para conseguir jogar, e o mais legal disso é que ela vai aprender isso sozinha, só vamos dar as informações que ela precisa, mas ela não sabe como processar essas informações ainda.
 ### Entradas
 <ul>
